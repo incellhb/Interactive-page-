@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Little Something ♡</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #fffaf7;
+      color: #302b2d;
+      font-family: "DM Sans", sans-serif;
+      min-height: 100vh;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 55px 24px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 620px;
+      text-align: center;
+    }
+
+    .heart {
+      font-size: 42px;
+      margin-bottom: 22px;
+    }
+
+    .tiny {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: lowercase;
+      color: #8c777d;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 9vw, 64px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(31px, 7vw, 48px);
+      line-height: 1.12;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: #665b60;
+      margin-bottom: 22px;
+    }
+
+    .opening p {
+      max-width: 470px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-number {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      color: #a1838c;
+      margin-bottom: 24px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    button {
+      border: 1px solid #ddcfd2;
+      background: #fff;
+      color: #433b3f;
+      border-radius: 999px;
+      padding: 13px 19px;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      border-color: #b99ba4;
+      background: #fff5f7;
+    }
+
+    button.primary {
+      background: #302b2d;
+      color: white;
+      border-color: #302b2d;
+    }
+
+    .reveal {
+      display: none;
+      margin: 25px auto 0;
+      padding: 20px;
+      max-width: 500px;
+      background: #fff;
+      border: 1px solid #eadde0;
+      border-radius: 18px;
+      color: #665b60;
+      line-height: 1.7;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .reveal.show {
+      display: block;
+    }
+
+    .letter {
+      text-align: left;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid #eadde0;
+      border-radius: 24px;
+      padding: 30px 25px;
+      margin-top: 25px;
+    }
+
+    .letter p {
+      margin-bottom: 20px;
+    }
+
+    .final {
+      padding-bottom: 80px;
+    }
+
+    .final h2 {
+      margin-bottom: 18px;
+    }
+
+    .hidden-final {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .hidden-final.show {
+      display: block;
+    }
+
+    .signature {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      margin-top: 28px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .page {
+        padding: 45px 20px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .letter {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- OPENING -->
+
+  <section class="page active" id="page0">
+    <div class="content opening">
+
+      <div class="heart">♡</div>
+
+      <div class="tiny">a tiny something</div>
+
+      <h1>Hey, you.</h1>
+
+      <p>
+        I made you something.
+        And yes... you're going to have to click things. :)
+      </p>
+
+      <button class="primary" onclick="nextPage()">
+        Open it ♡
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- 01 -->
+
+  <section class="page" id="page1">
+    <div class="content">
+
+      <div class="section-number">01 · one important question</div>
+
+      <h2>Before anything else...</h2>
+
+      <p>
+        Did you actually think I would let this day pass
+        without making you something?
+      </p>
+
+      <div class="buttons">
+        <button onclick="showChoice(this, 'I knew you would.')">
+          Yes 😌
+        </button>
+
+        <button onclick="showChoice(this, 'Okay okay, you got me.')">
+          No, because I know you 😭
+        </button>
+      </div>
+
+      <div class="reveal" id="choice1"></div>
+
+      <div class="buttons">
+        <button class="primary" onclick="nextPage()">
+          Okay okay, continue →
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 02 -->
+
+  <section class="page" id="page2">
+    <div class="content">
+
+      <div class="section-number">02 · somehow</div>
+
+      <h2>How did you even become this important?</h2>
+
+      <p>
+        I don't really know when it happened.
+        Somewhere between all the conversations,
+        random thoughts and ordinary days,
+        you simply became someone I wanted around.
+      </p>
+
+      <p>
+        Be honest. Who do you want to tell your random nonsense to?
+      </p>
+
+      <div class="buttons">
+
+        <button onclick="showChoice(this, 'Correct answer. Obviously.')">
+          You, obviously 🙄
+        </button>
+
+        <button onclick="showChoice(this, 'That answer was suspicious.')">
+          Myself
+        </button>
+
+      </div>
+
+      <div class="reveal" id="choice2"></div>
+
+      <div class="buttons">
+        <button class="primary" onclick="nextPage()">
+          Next ♡
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 03 -->
+
+  <section class="page" id="page3">
+    <div class="content">
+
+      <div class="section-number">03 · the little things</div>
+
+      <h2>It's not always the big moments.</h2>
+
+      <p>
+        Sometimes it's the random conversations,
+        stupid jokes, tiny arguments, unexpected calls,
+        and those completely pointless moments that somehow
+        become the ones you remember.
+      </p>
+
+      <p>
+        Pick your favourite kind of “us” moment.
+      </p>
+
+      <div class="buttons">
+
+        <button onclick="showChoice(this, 'The random conversations are undefeated.')">
+          Random yapping
+        </button>
+
+        <button onclick="showChoice(this, 'You two really argue about everything 😭')">
+          Stupid fights 😭
+        </button>
+
+        <button onclick="showChoice(this, 'Those are usually the funniest.')">
+          Laughing at nonsense
+        </button>
+
+        <button onclick="showChoice(this, 'Future talks hit differently.')">
+          Future talks
+        </button>
+
+      </div>
+
+      <div class="reveal" id="choice3"></div>
+
+      <div class="buttons">
+        <button class="primary" onclick="nextPage()">
+          I have more to say →
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 04 -->
+
+  <section class="page" id="page4">
+    <div class="content">
+
+      <div class="section-number">04 · things I notice</div>
+
+      <h2>You probably don't realise...</h2>
+
+      <p>
+        I notice the little things.
+        The way you talk, the way you react,
+        the things that make you excited,
+        and even the annoying little habits.
+      </p>
+
+      <p>
+        Tap the cards below.
+      </p>
+
+      <div class="buttons">
+
+        <button onclick="reveal('r1')">
+          A reminder
+        </button>
+
+        <button onclick="reveal('r2')">
+          One tiny thing
+        </button>
+
+        <button onclick="reveal('r3')">
+          One more
+        </button>
+
+        <button onclick="reveal('r4')">
+          The important one
+        </button>
+
+      </div>
+
+      <div class="reveal" id="r1">
+        I notice much more than I usually say.
+      </div>
+
+      <div class="reveal" id="r2">
+        You can somehow be annoying and adorable at the same time.
+      </div>
+
+      <div class="reveal" id="r3">
+        Some things are probably never going to make it
+        into a normal conversation.
+      </div>
+
+      <div class="reveal" id="r4">
+        Somehow you became one of my favourite people.
+      </div>
+
+      <div class="buttons">
+        <button class="primary" onclick="nextPage()">
+          Next ♡
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 05 -->
+
+  <section class="page" id="page5">
+    <div class="content">
+
+      <div class="section-number">05 · ordinary days</div>
+
+      <h2>I want those too.</h2>
+
+      <p>
+        I don't want us to only remember the huge moments.
+        I want the ordinary days too.
+        The random plans, food dates, travelling,
+        sitting together doing absolutely nothing,
+        and making memories without noticing.
+      </p>
+
+      <p>
+        Which kind of ordinary day would you choose?
+      </p>
+
+      <div class="buttons">
+
+        <button onclick="showChoice(this, 'A lazy day sounds perfect.')">
+          A lazy day
+        </button>
+
+        <button onclick="showChoice(this, 'Food automatically makes the day better.')">
+          A food date
+        </button>
+
+        <button onclick="showChoice(this, 'A completely random trip.')">
+          A random trip
+        </button>
+
+        <button onclick="showChoice(this, 'Honestly, doing nothing together is enough.')">
+          Just sitting together
+        </button>
+
+      </div>
+
+      <div class="reveal" id="choice5"></div>
+
+      <div class="buttons">
+        <button class="primary" onclick="nextPage()">
+          Keep going →
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 06 -->
+
+  <section class="page" id="page6">
+    <div class="content">
+
+      <div class="section-number">06 · us</div>
+
+      <h2>We're obviously not perfect.</h2>
+
+      <p>
+        We can misunderstand each other.
+        We can overthink.
+        We can get annoyed over completely unnecessary things.
+      </p>
+
+      <p>
+        But underneath all of that,
+        what matters is choosing to understand each other
+        and continuing to grow together.
+      </p>
+
+      <p>
+        Our relationship in one sentence?
+      </p>
+
+      <div class="buttons">
+
+        <button onclick="showChoice(this, 'Why are we fighting about this? 😭')">
+          Why are we fighting about this? 😭
+        </button>
+
+        <button onclick="showChoice(this, 'Okay. Come here.')">
+          Okay. Come here.
+        </button>
+
+        <button onclick="showChoice(this, 'Wait, listen to me first.')">
+          Wait, listen to me first.
+        </button>
+
+        <button onclick="showChoice(this, 'Yep. All of the above.')">
+          All of the above 😭
+        </button>
+
+      </div>
+
+      <div class="reveal" id="choice6"></div>
+
+      <div class="buttons">
+        <button class="primary" onclick="nextPage()">
+          Next ♡
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 07 -->
+
+  <section class="page" id="page7">
+    <div class="content">
+
+      <div class="section-number">07 · every version</div>
+
+      <h2>I wanna know you too.</h2>
+
+      <p>
+        Not just the happy version.
+        Not just the confident version.
+        I want to know the stressed version,
+        confused version, irritated version,
+        and every version that doesn't have everything figured out.
+      </p>
+
+      <p>
+        You don't have to know everything right now.
+        We can figure things out as we go.
+      </p>
+
+      <div class="buttons">
+        <button class="primary" onclick="nextPage()">
+          One last page →
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 08 -->
+
+  <section class="page final" id="page8">
+    <div class="content">
+
+      <div class="section-number">08 · the actual letter</div>
+
+      <h2>Okay. This one's for you. ♡</h2>
+
+      <div class="letter">
+
+        <p>
+          I just really like having you in my life.
+          Somewhere along the way, your presence became
+          something I stopped questioning.
+        </p>
+
+        <p>
+          You're there in the everyday things,
+          the random thoughts, the plans,
+          the conversations and the memories.
+        </p>
+
+        <p>
+          I hope we keep growing, laughing,
+          annoying each other, making ridiculous memories,
+          and choosing each other through whatever comes next.
+        </p>
+
+        <p>
+          And now for the important question...
+        </p>
+
+        <p>
+          Years from now, when we look back at this,
+          what do you think we'll laugh about the most?
+        </p>
+
+      </div>
+
+      <div class="buttons">
+
+        <button class="primary" onclick="showFinal()">
+          I have an answer
+        </button>
+
+      </div>
+
+      <div class="hidden-final" id="finalReveal">
+
+        <p>
+          Probably the fact that someone actually made
+          an entire website just to say all of this.
+        </p>
+
+        <div class="heart">♡</div>
+
+        <h2>You're stuck with me now.</h2>
+
+        <p>
+          No refunds.<br>
+          No exchanges.<br>
+          Too late. :)
+        </p>
+
+        <div class="signature">
+          I love you. ♡
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <script>
+
+    let currentPage = 0;
+
+    function nextPage() {
+
+      const current = document.getElementById("page" + currentPage);
+
+      current.classList.remove("active");
+
+      currentPage++;
+
+      const next = document.getElementById("page" + currentPage);
+
+      if (next) {
+        next.classList.add("active");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    }
+
+
+    function showChoice(button, message) {
+
+      const page = button.closest(".page");
+
+      const reveal = page.querySelector(".reveal:not(.show)");
+
+      if (reveal) {
+        reveal.textContent = message;
+        reveal.classList.add("show");
+      }
+    }
+
+
+    function reveal(id) {
+
+      const box = document.getElementById(id);
+
+      if (box) {
+        box.classList.toggle("show");
+      }
+    }
+
+
+    function showFinal() {
+
+      const final = document.getElementById("finalReveal");
+
+      final.classList.add("show");
+
+      final.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+
+  </script>
+
+</body>
+  </html>
